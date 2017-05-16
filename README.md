@@ -7,3 +7,5 @@ This project is a combination of an active and passive device scanner, that will
 /opt/scanner/passiveScan.py
 #### Pressistans script:
 /etc/init.d/pressActive.sh
+#### Ansible playbook:
+/opt/ansible/deployScan.yml
