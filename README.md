@@ -5,7 +5,7 @@ This project is a combination of an active and passive device scanner, that will
 #### List of allowed devices:
 /opt/devices/allowedDevices.txt
 #### Scanners:
-/opt/scanner/activeScan.py 
+/opt/scanner/activeScan.py   
 /opt/scanner/passiveScan.py
 #### Pressistans script:
 /etc/init.d/pressActive.sh
