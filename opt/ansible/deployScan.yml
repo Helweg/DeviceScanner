@@ -2,7 +2,7 @@
 - hosts: all
   sudo: true
   vars:
-     packages: [ 'git']
+     packages: ['git', 'python3-pip']
   tasks:
      - name: Install Package
        apt: name={{ item }} state=latest
@@ -10,3 +10,6 @@
 
      - name: Get DeviceScanner from Git
        git: accept_hostkey=True repo=https://github.com/Helweg/DeviceScanner.git dest=/tmp/git
+
+     - name: Installing nmap for python
+       command: pip3 install python-nmap
