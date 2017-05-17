@@ -1,8 +1,8 @@
 #! /bin/sh
 
-PATH=/bin:/opt/shellScript/
-DAEMON=/home/.. path to shell script scriptname created to run python script
-PIDFILE=/var/run/scriptname.pid
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+DAEMON=/opt/shellScript/deviceScanner.sh
+PIDFILE=/var/run/deviceScanner.pid
 
 test -x $DAEMON || exit 0
 
@@ -10,12 +10,12 @@ test -x $DAEMON || exit 0
 
 case "$1" in
   start)
-     log_daemon_msg "Starting feedparser"
+     log_daemon_msg "Starting Active Scanner"
      start_daemon -p $PIDFILE $DAEMON
      log_end_msg $?
    ;;
   stop)
-     log_daemon_msg "Stopping feedparser"
+     log_daemon_msg "Stopping Active Scanner"
      killproc -p $PIDFILE $DAEMON
      PID=`ps x |grep feed | head -1 | awk '{print $1}'`
      kill -9 $PID       
