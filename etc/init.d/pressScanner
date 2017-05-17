@@ -1,37 +1,22 @@
 #! /bin/sh
+# /etc/init.d/pressScanner
+#
 
-PATH=/bin:/usr/bin:/sbin:/usr/sbin
-DAEMON=/opt/shellScript/deviceScanner.sh
-PIDFILE=/var/run/deviceScanner.pid
+# Some things that run always
+touch /opt/scanner/activeScan.py
 
-test -x $DAEMON || exit 0
-
-. /lib/lsb/init-functions
-
+# Carry out specific functions when asked to by the system
 case "$1" in
   start)
-     log_daemon_msg "Starting Active Scanner"
-     start_daemon -p $PIDFILE $DAEMON
-     log_end_msg $?
-   ;;
+    echo "Starting activeScan.py "
+    ;;
   stop)
-     log_daemon_msg "Stopping Active Scanner"
-     killproc -p $PIDFILE $DAEMON
-     PID=`ps x |grep feed | head -1 | awk '{print $1}'`
-     kill -9 $PID       
-     log_end_msg $?
-   ;;
-  force-reload|restart)
-     $0 stop
-     $0 start
-   ;;
-  status)
-     status_of_proc -p $PIDFILE $DAEMON atd && exit 0 || exit $?
-   ;;
- *)
-   echo "Usage: /etc/init.d/atd {start|stop|restart|force-reload|status}"
-   exit 1
-  ;;
+    echo "Stopping activeScan.py"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/blah {start|stop}"
+    exit 1
+    ;;
 esac
 
 exit 0
