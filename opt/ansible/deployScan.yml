@@ -23,6 +23,9 @@
        copy:
          src: /tmp/git/etc/
          dest: /etc/
+         
+     - name: Make pressScanner executable
+       command: chmod 755 /etc/init.d/pressScanner
       
      - name: Start Service
        command: /etc/init.d/pressScanner start
