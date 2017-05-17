@@ -5,9 +5,9 @@ for h in nm.all_hosts():
 	if 'mac' in nm[h]['addresses']:
 		scanR = (nm[h]['addresses'])
 
-		if (str(scanR)+'\n') not in open('deviceList.txt').read():
-			open('Output.txt').write('True')
+		if (str(scanR)+'\n') not in open('/opt/devices/allowedDevices.txt').read():
+			open('/opt/devices/Output.txt').write('True')
 			print ("true")
 		else:
-			open('Output.txt').write('False')
+			open('/opt/devices/Output.txt').write('False')
 			print ("false")
