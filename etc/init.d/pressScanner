@@ -9,7 +9,7 @@ touch /opt/scanner/activeScan.py
 case "$1" in
   start)
     echo "Starting activeScan.py "
-    -c 'python3 /opt/scanner/activeScan.py'
+    python3 /opt/scanner/activeScan.py
     ;;
   stop)
     echo "Stopping activeScan.py"
