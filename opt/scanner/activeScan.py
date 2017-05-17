@@ -6,6 +6,8 @@ for h in nm.all_hosts():
 		scanR = (nm[h]['addresses'])
 
 		if (str(scanR)+'\n') not in open('deviceList.txt').read():
+			open('Output.txt').write('True')
 			print ("true")
 		else:
+			open('Output.txt').write('False')
 			print ("false")
