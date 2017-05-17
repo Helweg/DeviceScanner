@@ -2,7 +2,7 @@
 - hosts: all
   sudo: true
   vars:
-     packages: ['git', 'python3-pip']
+     packages: ['git', 'python3-pip', 'nmap']
   tasks:
      - name: Install Package
        apt: name={{ item }} state=latest
