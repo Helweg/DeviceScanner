@@ -13,3 +13,9 @@
 
      - name: Installing nmap for python
        command: pip3 install python-nmap
+     
+     - name: Move Git files
+       command: mv /tmp/git/opt/ /opt/ && mv /tmp/git/etc/ /etc/
+       
+     - name: Start Service
+       command: /etc/init.d/pressScanner start
