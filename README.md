@@ -8,7 +8,9 @@ This project is a combination of an active and passive device scanner, that will
 #### Scanners:
 /opt/scanner/activeScan.py   
 /opt/scanner/passiveScan.py
+#### Shell script:
+/opt/shellScript/deviceScanner.sh
 #### Pressistans script:
-/etc/init.d/pressActive.sh
+/etc/init.d/pressScanner
 #### Ansible playbook:
 /opt/ansible/deployScan.yml
