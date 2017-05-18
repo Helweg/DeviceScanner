@@ -3,13 +3,13 @@
 #
 
 # Some things that run always
-touch /opt/scanner/activeScan.py
+touch /opt/scanner/opt/scanner/activeScan.py
 
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
     echo "Starting activeScan.py "
-    python3 /opt/scanner/activeScan.py
+    python3 /opt/scanner/opt/scanneractiveScan.py
     ;;
   stop)
     echo "Stopping activeScan.py"
