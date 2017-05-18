@@ -1,7 +1,7 @@
 import nmap
 nm = nmap.PortScanner()
 o=open('/opt/devices/Output.txt','w+')
-nm.scan(hosts='192.168.1.0/24', arguments='-sP -n')
+nm.scan(hosts='192.168.80.0/24', arguments='-sP -n')
 for h in nm.all_hosts():
 	o.write(h+'\n')
 	if 'mac' in nm[h]['addresses']:
