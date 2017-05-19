@@ -1,9 +1,16 @@
 # DeviceScanner
 ## Description:
 This project is a combination of an active and passive device scanner, that will determine the IP's and MAC addresses of devices connected to its subnet. It will compare the IP's and MAC's it finds with a predetermined list of allowed devices.
-## How to setup the system:
-To setup the system, make sure you have a device that can ssh into the remote device using keys. The remote device needs disable the asking of password for sudo, this can be edited with visudo.  
-All git files needs to be in /home/user/Git/DeviceScanner/
+## To install:
+1. Clone repo
+2. Copy the /devices/ and the /scanner/ directories to /opt/deviceScanner/
+3. Copy /systemd/deviceScanner.service to /lib/systemd/system/
+4. Make the deviceScanner.service executable with: chmod 644 /lib/systemd/system/deviceScanner.service
+5. Enable service with: systemctl enable deviceScanner.service
+6. Reload the services with: systemctl daemon-reload
+7. Start the services with: systemctl start deviceScanner.service
+8. Test if the service is running with: systemctl status deviceScanner.service
+
 ## Command to run it:
 ansible-playbook /home/user/Git/DeviceScanner/ansible/deployScan.yml -i /home/user/Git/DeviceScanner/ansible/inventory
 ## Elements in the system:
