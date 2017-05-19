@@ -2,15 +2,16 @@
 ## Description:
 This project is a combination of an active and passive device scanner, that will determine the IP's and MAC addresses of devices connected to its subnet. It will compare the IP's and MAC's it finds with a predetermined list of allowed devices.
 ## How to setup the system:
+To setup the system, make sure you have a device that can ssh into the remote device using keys. The remote device needs disable the asking of password for sudo, this can be edited with visudo.   
+
 ## Elements in the system:
 #### List of allowed devices:
-/opt/devices/allowedDevices.txt
+/devices/allowedDevices.txt
 #### Scanners:
-/opt/scanner/activeScan.py   
-/opt/scanner/passiveScan.py
-#### Shell script:
-/opt/shellScript/deviceScanner.sh
-#### Pressistans script:
-/etc/init.d/pressScanner
-#### Ansible playbook:
-/opt/ansible/deployScan.yml
+/scanner/activeScan.py   
+/scanner/passiveScan.py
+#### Service script:
+/systemd/deviceScanner.service
+#### Ansible playbook and inventory:
+/ansible/deployScan.yml   
+/ansible/inventory
