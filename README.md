@@ -11,8 +11,6 @@ This project is a combination of an active and passive device scanner, that will
 7. Start the services with: systemctl start deviceScanner.service
 8. Test if the service is running with: systemctl status deviceScanner.service
 
-## Command to run it:
-ansible-playbook /home/user/Git/DeviceScanner/ansible/deployScan.yml -i /home/user/Git/DeviceScanner/ansible/inventory
 ## Elements in the system:
 #### List of allowed devices:
 /devices/allowedDevices.txt
@@ -21,6 +19,3 @@ ansible-playbook /home/user/Git/DeviceScanner/ansible/deployScan.yml -i /home/us
 /scanner/passiveScan.py
 #### Service script:
 /systemd/deviceScanner.service
-#### Ansible playbook and inventory:
-/ansible/deployScan.yml   
-/ansible/inventory
