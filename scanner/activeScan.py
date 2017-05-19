@@ -13,9 +13,6 @@ for doc in docs:
 		if k == 'Interval':
 			interval = v
 
-file = open('/opt/deviceScanner/devices/allowedDevices.txt', 'a+')
-for devices in allowedDevices:
-	file.write(str(devices)+'\n')
 while True:
 	nm = nmap.PortScanner()
 	o=open('/opt/deviceScanner/devices/Output.txt','a+')
@@ -24,7 +21,7 @@ while True:
 		if 'mac' in nm[h]['addresses']:
 			scanR = (nm[h]['addresses'])
 	
-			if (str(scanR)+'\n') not in file:
+			if (str(scanR)+'\n') not in v:
 				o.write(str(scanR)+' Not in allowedDevices.txt\n')
 			else:
 				o.write(str(scanR)+'\n')
