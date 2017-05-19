@@ -1,0 +1,43 @@
+---
+- hosts: all
+  remote_user: user
+  sudo: true
+  vars:
+     packages: ['python3-pip', 'nmap']
+  tasks:
+     - name: Install Package
+       apt: name={{ item }} state=latest
+       with_items: packages
+
+     - name: Installing nmap for python
+       command: pip3 install python-nmap
+     
+     - name: Move /DeviceScanner/ansible/ to remote
+       copy:
+         src: /home/user/Git/DeviceScanner/ansible/
+         dest: /opt/deviceScanner/ansible
+
+     - name: Move /DeviceScanner/devices/ to remote
+       copy:
+         src: /home/user/Git/DeviceScanner/devices/
+         dest: /opt/deviceScanner/devices
+
+     - name: Move /DeviceScanner/scanner/ to remote
+       copy:
+         src: /home/user/Git/DeviceScanner/scanner/
+         dest: /opt/deviceScanner/scanner
+         
+     - name: Move /etc/ to remote
+       copy:
+         src: /home/user/Git/DeviceScanner/systemd/
+         dest: /lib/systemd/system/
+         
+     - name: Make pressScanner executable
+       command: chmod 644 /lib/systemd/system/deviceScanner.service
+
+     - name: Configure systemd
+       command: systemctl daemon-reload
+       command: systemctl enable deviceScanner.service
+       command: systemctl daemon-reload
+       command: systemctl start deviceScanner.service
+

@@ -1,0 +1,10 @@
+[Unit]
+Description=Device Scanner Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /opt/deviceScanner/scanner/activeScan.py
+
+[Install]
+WantedBy=multi-user.target
