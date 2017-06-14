@@ -1,6 +1,15 @@
 import nmap
 import time
 import yaml
+import logging
+import logging.handlers
+
+my_logger = logging.getLogger('MyLogger')
+my_logger.setLevel(logging.DEBUG)
+
+handler = logging.handlers.SysLogHandler(address = '/dev/log')
+
+my_logger.addHandler(handler)
 
 stream = open("scannerConf.yml", 'r')
 docs = yaml.load_all(stream)
@@ -22,7 +31,6 @@ while True:
 			scanR = (nm[h]['addresses'])
 	
 			if (str(scanR)+'\n') not in v:
-				o.write(str(scanR)+' Not in allowedDevices.txt\n')
-			else:
+				my_logger.info(str(scanR)+' Not in allowedDevices.txt')
 				o.write(str(scanR)+'\n')
 	time.sleep(interval)
